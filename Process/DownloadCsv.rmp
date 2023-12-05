@@ -13,13 +13,13 @@
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
       <operator activated="true" class="restapi:get" compatibility="1.1.000" expanded="true" height="68" name="GET Request" width="90" x="45" y="85">
-        <parameter key="url" value="https://www.kaggle.com/datasets/sukuzhanay/examen- parcial/download?datasetVersionNumber=1"/>
+        <parameter key="url" value="https://www.kaggle.com/datasets/sukuzhanay/examen-parcial/download?datasetVersionNumber=1"/>
         <list key="parameters"/>
         <list key="header"/>
         <parameter key="output format" value="csv"/>
       </operator>
       <operator activated="true" class="store" compatibility="10.2.000" expanded="true" height="68" name="Store" width="90" x="246" y="85">
-        <parameter key="repository_entry" value="../Data/fullDataSet"/>
+        <parameter key="repository_entry" value="../Data/whole_dataset"/>
       </operator>
       <connect from_op="GET Request" from_port="output" to_op="Store" to_port="input"/>
       <connect from_op="Store" from_port="through" to_port="result 1"/>
