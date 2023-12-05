@@ -49,11 +49,15 @@
         <parameter key="repository_entry" value="../Data/whole_dataset"/>
       </operator>
       <operator activated="true" class="blending:set_role" compatibility="10.2.000" expanded="true" height="82" name="Set Role" width="90" x="246" y="238">
-        <list key="set_roles"/>
+        <list key="set_roles">
+          <parameter key="TicketType" value="label"/>
+        </list>
       </operator>
       <connect from_op="Retrieve" from_port="output" to_op="Set Role" to_port="example set input"/>
+      <connect from_op="Set Role" from_port="example set output" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
     </process>
   </operator>
 </process>
