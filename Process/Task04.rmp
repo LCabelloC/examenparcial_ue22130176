@@ -93,10 +93,10 @@
           <description align="center" color="gray" colored="true" height="156" resized="false" width="784" x="114" y="423">This subprocess is used to define what a word is for the Process Documents to count. Here the tokenize operator allows the user to define how to extract a word from text. In this process, non-letters is used which is a simple but effective way to tokenize. Transform cases is used to make sure 'The', 'THE', and 'the' are all counted as the same word by transforming everything to lowercase. The Filter Stopwords operators use prebuilt english stopwords dictionary and a custom stopwords dictionary to remove useless words for our analysis. Words and parts of speech like pronouns and conjunctions are removed along with a host of other stopwords. Generate n-Grams is the final operation. This operator pairs tearms together, up to four terms in this process, which then get pruned by the process documents operator. This is utilized to find words that show up together often.</description>
         </process>
       </operator>
-      <operator activated="true" class="store" compatibility="10.2.000" expanded="true" height="68" name="Store" width="90" x="648" y="238">
+      <operator activated="true" class="store" compatibility="10.2.000" expanded="true" height="68" name="Store" width="90" x="514" y="238">
         <parameter key="repository_entry" value="../Results/WordList"/>
       </operator>
-      <operator activated="true" class="store" compatibility="10.2.000" expanded="true" height="68" name="Store (2)" width="90" x="648" y="85">
+      <operator activated="true" class="store" compatibility="10.2.000" expanded="true" height="68" name="Store (2)" width="90" x="514" y="85">
         <parameter key="repository_entry" value="../Data/TextMinedData"/>
         <description align="center" color="transparent" colored="false" width="126">Stores data as TextMinedData</description>
       </operator>
@@ -104,8 +104,12 @@
       <connect from_op="Nominal to Text" from_port="example set output" to_op="Process Documents from Data" to_port="example set"/>
       <connect from_op="Process Documents from Data" from_port="example set" to_op="Store (2)" to_port="input"/>
       <connect from_op="Process Documents from Data" from_port="word list" to_op="Store" to_port="input"/>
+      <connect from_op="Store" from_port="through" to_port="result 2"/>
+      <connect from_op="Store (2)" from_port="through" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
     </process>
   </operator>
 </process>
